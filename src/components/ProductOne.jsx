@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 
@@ -11,6 +11,35 @@ function ProductOne() {
 
     const location = useLocation();
     const { state } = location;
+
+    const [data, setData] = useState(null);
+
+    const local = localStorage.getItem('user');
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (local) {
+            setData(local);
+        }
+    }, [local])
+
+    const handleCart = (product) => {
+        if (data) {
+            addProduct(product)
+            alert('Vous avez ajouté un produit dans le panier ' + product.title);
+        } else {
+            navigate("/login");
+        }
+    }
+
+    const handleCart1 = () => {
+        if (data) {
+            navigate("/cart");
+
+        } else {
+            navigate("/login");
+        }
+    }
 
     useEffect(() => {
         setProduct(state.product)
@@ -42,10 +71,6 @@ function ProductOne() {
         )
     };
 
-    const handleToast = (product) => {
-        alert('Vous avez ajouté un produit dans le panier ' + product);
-    }
-
     const ShowProduct = () => {
         return (
             <>
@@ -69,8 +94,8 @@ function ProductOne() {
                             borderRadius: "7px", padding: "30px", color: "#333"
                         }}>{state.product.description}</p>
                         <button className='btn btn-outline-dark px-4 py-2'
-                            onClick={() => (handleToast(state.product.title), addProduct(product))}>Ajouter au panier</button>
-                        <NavLink to="/cart" className='btn btn-outline-dark ms-2 px-3 py-2'>Allez au panier</NavLink>
+                            onClick={() => handleCart(product)}>Ajouter au panier</button>
+                        <button className='btn btn-outline-dark ms-2 px-3 py-2' onClick={handleCart1}>Allez au panier</button>
                         <NavLink to="/products" className='btn btn-outline-dark ms-2 px-3 py-2'>Retour</NavLink>
                     </div>
                 </div>

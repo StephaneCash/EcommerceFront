@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Grid, Paper, Typography, Link, Button } from "@material-ui/core"
+import React, { useEffect } from 'react'
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Grid, Paper, Typography, Link, Button } from "@material-ui/core"
 
-function Login() {
+
+function RegisterUser() {
+
     const paperStyle = { padding: 20, height: 'auto', width: 340, margin: '20px auto', backgroundColor: 'white' }
     const backgroundColorAvatar = {
         width: "50px"
@@ -15,6 +18,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     const [err, setErr] = useState({});
+    const [pseudo, setPseudo] = useState('');
 
     // Is Valids Inputs
     const [isValidEmail, setIsValidEmail] = useState(false);
@@ -41,17 +45,16 @@ function Login() {
     const connecter = () => {
         setBtnState(true);
 
-        const url = 'http://localhost:5000/api/user/login';
+        const url = 'http://localhost:5000/api/users';
 
-        if (pwd !== "" && email !== "") {
-            axios.post(url, { email, password: pwd }).then(res => {
-                console.log(res)
+        if (pwd !== "" && email !== "" && pseudo !== "") {
+            axios.post(url, { email, password: pwd, pseudo }).then(res => {
                 setErr("")
                 if (res.data.jeton) {
                     localStorage.setItem('user', JSON.stringify(res.data));
                 }
 
-                navigate('/');
+                navigate('/login');
                 setBtnState(false);
             }).catch(erreur => {
                 console.log(erreur)
@@ -59,17 +62,19 @@ function Login() {
                 setBtnState(false);
             })
         } else {
-            alert('Veuillez remplir tous les champs svp !!!')
+            setErr('Veuillez remplir tous les champs svp !!!');
+            setBtnState(false);
         }
     };
 
+
     return (
-        <div className="">
+        <div>
             <Grid>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid align="center" style={{ backgroundColor: 'white' }}>
                         <img src="" style={backgroundColorAvatar} />
-                        <h4 className='mt-3'>S'authetifier</h4>
+                        <h4 className='mt-3'>S'inscrire</h4>
                         <i className='fa fa-user-circle fa-2x'></i>
                     </Grid>
 
@@ -80,8 +85,15 @@ function Login() {
                     </span>
 
                     <div className="form-group mt-4">
-                        <label className="mt-1">Entrer votre adresse email</label>
-                        <input placeholder="Nom d'utilisateur ou email" required
+                        <label className="mt-1">Entrer un Pseudo</label>
+                        <input placeholder="Pseudo" required type="text"
+                            className='form-control mt-1' onChange={(e) => setPseudo(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="form-group mt-4">
+                        <label className="mt-1">Entrer une adresse email</label>
+                        <input placeholder="Nom d'utilisateur ou email" required type="email"
                             className='form-control mt-1' onChange={(e) => (handleEmail, setEmail(e.target.value))}
                         />
                     </div>
@@ -97,7 +109,7 @@ function Login() {
 
 
                     <Button variant="contained" onClick={connecter} className='mt-3' fullWidth style={{ backgroundColor: '#0c50a2', color: "#fff" }}>
-                        {btnState ? <i className="fa fa-spinner fa-spin"></i> : "Se connecter"}
+                        {btnState ? <i className='fa fa-spinner fa-spin'></i> : "S'inscrire"}
                     </Button>
 
                     <Typography>
@@ -120,4 +132,4 @@ function Login() {
     )
 }
 
-export default Login
+export default RegisterUser

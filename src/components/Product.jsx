@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -9,6 +10,8 @@ function Product() {
     const [data, setData] = useState([]);
     const [filter, setFilter] = useState(data);
     const [loading, setLoading] = useState(false);
+
+    const [categories, setCategories] = useState([]);
 
     let componentMounted = true;
 
@@ -33,10 +36,21 @@ function Product() {
         }).catch(err => {
             console.log(err)
         })
+    };
+
+    const getAllCat = () => {
+        axios.get('http://localhost:5000/api/categories')
+            .then(res => {
+                setCategories(res.data);
+            })
+            .catch(err => {
+                console.log(err.response)
+            });
     }
 
     useEffect(() => {
         getProducts();
+        getAllCat();
     }, []);
 
     const Loading = () => {
@@ -63,36 +77,42 @@ function Product() {
                     <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('women\'s clothing')}>Indien</button>
                     <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('electronics')}>Sur thème des paysages</button>
                 </div>
+                <div className='grille'>
+                    {
+                        filter && filter.map((product) => {
+                            return (
+                                <>
 
-                {
-                    filter && filter.map((product) => {
-                        return (
-                            <>
-                                <div className="col-md-3 mb-4 product">
-                                    <div className="card h-100 text-center p-4" key={product.id}>
-                                        <img src={product.image} alt='Image-tableau' height="150px" />
-                                        <div className="card-body">
-                                            <div className="card-text mb-0">{product.title.substring(0, 12)}...</div>
-                                            <p className='card-text lead fw-bold'>
-                                                $ {product.price}
-                                            </p>
-                                            <NavLink to={{ pathname: '/productOne' }} state={{ product: product }} className='btn btn-outline-dark'>
-                                                Acheter maintenant
-                                            </NavLink>
+                                    <div className=" text-center p-4" key={product.id}>
+                                        <div className=" mb-4 product" style={{ display: "grid" }}>
+                                            <div className="card">
+                                                <div className="card-body">
+                                                    <div className='text'>{product.title}</div>
+                                                    <img src={product.image} alt='Image-tableau' />
+
+                                                    <div className="mb-0">{product.title.substring(0, 12)}...</div>
+                                                    <p className='card-text lead fw-bold'>
+                                                        $ {product.price}
+                                                    </p>
+                                                    <NavLink to={{ pathname: '/productOne' }} state={{ product: product }} className='btn btn-outline-dark'>
+                                                        Acheter maintenant
+                                                    </NavLink>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </>
-                        )
-                    })
-                }
+                                </>
+                            )
+                        })
+                    }
+                </div>
             </>
         )
     }
 
     return (
         <>
-            <div className="container my-5 py-5">
+            <div className=" my-5 py-5">
                 <div className="row">
                     <div className="col-12 mb-5">
                         <h1 className='display-6 fw-bolder text-center'>Derniers produits de qualité</h1>

@@ -89,7 +89,7 @@ function GestionTab() {
                                         <tr key={val.id}>
                                             <td>{i + 1}</td>
                                             <td>{val.title}</td>
-                                            <td>{ }</td>
+                                            <td>{val.categories ? val.categories.nom : "Aucune catégorie"}</td>
                                             <td>{val.price} $</td>
                                             <td>{val.qty}</td>
                                             <td><img src={val.image} style={{ borderRadius: "50%" }} alt={val.title} width="60px" height="60px" /></td>
@@ -107,9 +107,9 @@ function GestionTab() {
                                     )
                                 }) :
                                     <tr>
-                                        <td colSpan='8px' className='text-center'><i className='fa fa-spinner fa-spin'></i> Chargement... </td>
+                                        <td colSpan='8px' className='text-center'>Chargement... <i className='fa fa-spinner fa-spin fa-2x'></i></td>
                                     </tr>
-                                    }
+                                }
                             </tbody>
                         </table>
                     </div>

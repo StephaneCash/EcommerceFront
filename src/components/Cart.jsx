@@ -60,6 +60,7 @@ function Cart() {
           }) :
           <div className='card-img-overlay d-flex flex-column text-center justify-content-center'>
             <h5>Aucun tableau n'a été ajouté au panier.</h5>
+            <img src='./images/levide.jpg' height="200px" width="200px" style={{ margin: "0px auto" }} />
             <p>
               <NavLink to="/products">Retour</NavLink>
             </p>
@@ -68,8 +69,12 @@ function Cart() {
 
         <div className='row cart'>
           <div className='card mb-2 p-4'>
-            {product.length > 0 && <NavLink to={{ pathname: "/payement" }} state={{ product }}>
-              <button className="btn btn-outline-dark">Procéder au payement</button> </NavLink>
+            {product.length > 0 && <>
+              <NavLink to={{ pathname: "/payement" }} state={{ product }}>
+                <button className="btn btn-outline-dark">Procéder au payement</button> </NavLink>
+              <NavLink to="/products" className="me-2">Retour</NavLink>
+            </>
+
             }
           </div>
         </div>

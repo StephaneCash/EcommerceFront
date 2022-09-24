@@ -21,7 +21,7 @@ function AddProduct() {
         const config = {
             headers: { 'content-type': 'multipart/form-data' }
         }
-        if (title !== "" || qty !== "" || description !== "" || price !== "" || file !== "") {
+        if (title !== "" && qty !== "" && description !== "" && price !== "" && file !== "" && categoryId !== "") {
             axios.post('http://localhost:5000/api/products', { title, qty, price, description, file, categoryId }, config)
                 .then(res => {
                     navigate('/gerer');

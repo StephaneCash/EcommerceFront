@@ -9,7 +9,7 @@ function EditProduct() {
     const navigate = useNavigate();
     const { state } = location;
 
-    const [file, setFile] = useState('');
+    const [file, setFile] = useState({});
     const [title, setTitle] = useState("");
     const [qty, setQty] = useState("");
     const [description, setDescription] = useState("");
@@ -42,32 +42,46 @@ function EditProduct() {
     };
 
     useEffect(() => {
+        if (typeof (file) !== 'object') {
+            setFile({
+                lastModified: 1551204204000,
+                lastModifiedDate: 'Tue Feb 26 2019 19: 03: 24 GMT + 0100(heure normale d’Afrique de l’Ouest) {}',
+                name: "userConnected.png",
+                size: 36073,
+                type: "image/png",
+                webkitRelativePath: ""
+            })
+        }
+    }, [file])
+
+    useEffect(() => {
         getAllCategories();
     }, []);
 
     const submitData = (e) => {
         e.preventDefault();
-        if(title !== "" || qty !== '' || price !== "" || description !== "" || file !== ""){
+        console.log(typeof (file))
+        if (title !== "" && qty !== '' && price !== "" && description !== "" && file !== "" && categoryId !== "") {
             const config = {
                 headers: { 'content-type': 'multipart/form-data' }
             }
-            axios.put(`http://localhost:5000/api/products/${id}`, { title, qty, price, description, file }, config)
+            axios.put(`http://localhost:5000/api/products/${id}`, { title, qty, price, description, file, categoryId }, config)
                 .then(resp => {
-                    swal({title: "Succès", icon: "success", text: "Tableau édité avec succès"})
+                    swal({ title: "Succès", icon: "success", text: "Tableau édité avec succès" })
                     navigate("/gerer");
                 })
                 .catch(err => {
                     console.log(err.response)
                 })
-        }else{
-            swal({title: "Avertissement", icon: "warning", text: "Veuillez remplir tous les champs svp!!!"})
+        } else {
+            swal({ title: "Avertissement", icon: "warning", text: "Veuillez remplir tous les champs svp!!!" })
         }
-        
+
     }
     return (
-        <div className='container mt-2'>
-            <h5>Edition du produit</h5>
-            <div className='row'>
+        <div className='container'>
+            <h5 className='mt-5'>Edition du produit</h5>
+            <div className='row mt-4'>
                 <div className='col-sm-4'>
                     <label>Nom du tableau</label>
                     <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Nom du tableau' id="title" />

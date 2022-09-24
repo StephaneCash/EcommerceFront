@@ -12,8 +12,8 @@ function Home() {
 
     return (
         <>
-            <div className='hero mt-2 p-2'>
-                <div className='card bg-light text-white border-0'>
+            <div className='p-3'>
+                <div className='card bg-light text-white border-0 homePricipeal'>
                     <div className='d-flex slide1Home'>
                         <div className='col-sm-5 imageHome'>
                             <HeroSlider

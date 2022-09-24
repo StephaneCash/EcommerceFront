@@ -15,6 +15,7 @@ import AddProduct from "./components/AddProduct"
 import EditProduct from './components/EditProduct';
 import Category from './components/Category';
 import AddCat from './components/AddCat';
+import RegisterUser from './components/RegisterUser';
 
 
 function App() {
@@ -23,8 +24,8 @@ function App() {
       <PayPalScriptProvider options={{ "client-id": "AUGBEurHYAYgL-fNwZX8bA60QtYNAPPpoRw0KDmNFfpc6rEEsVL-ERZqkupmDF7fRonMmTYY8HWRidyp" }}>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path="/" element={<Home />} />
           <Route path="/products" element={<Product />} />
           <Route path="/productOne" element={<ProductOne />} />
           <Route path="/cart" element={<Cart />} />
@@ -34,6 +35,7 @@ function App() {
           <Route path='/editProduct' element={<EditProduct />} />
           <Route path="/categories" element={<Category />} />
           <Route path="/addCat" element={<AddCat />} />
+          <Route path="/register" element={<RegisterUser />} />
         </Routes>
       </PayPalScriptProvider>
     </BrowserRouter>
