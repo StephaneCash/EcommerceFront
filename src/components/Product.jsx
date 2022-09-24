@@ -87,12 +87,12 @@ function Product() {
                                         <div className=" mb-4 product" style={{ display: "grid" }}>
                                             <div className="card">
                                                 <div className="card-body">
-                                                    <div className='text'>{product.title}</div>
+                                                    <div className='text'>{product.title.substring(0, 15)}...</div>
                                                     <img src={product.image} alt='Image-tableau' />
 
                                                     <div className="mb-0">{product.title.substring(0, 12)}...</div>
                                                     <p className='card-text lead fw-bold'>
-                                                        $ {product.price}
+                                                        USD $ {product.price}
                                                     </p>
                                                     <NavLink to={{ pathname: '/productOne' }} state={{ product: product }} className='btn btn-outline-dark'>
                                                         Acheter maintenant

@@ -10,6 +10,10 @@ function Home() {
     const t2 = "./images/t2.jpg";
     const t3 = "./images/e.jpeg";
 
+    const toile1 = "./images/toile1.jpg";
+    const toile2 = "./images/toile2.jpg";
+    const toile3 = "./images/toile3.jpg";
+
     return (
         <>
             <div className='p-3'>
@@ -55,11 +59,44 @@ function Home() {
                                 Site pour vente de tableaux.
                                 <hr />
                             </p>
-                            <p className="card-text lead fs-4 text-black-50">
-                                Voluptate fuga, quis et aliquam eum at ratione libe
-                                Architecto aliquam ratione quibusdam consectetur voluptates ipsum corporis expedita id libero
-                                necessitatibus reprehenderit nobis odio tenetur voluptas ullam, in temporibus facilis sed.
-                            </p>
+                            <div className="container row">
+                                <div className='col-sm-4'>
+                                    <div className='row'>
+                                        <div className='col-sm-6'>
+                                            <img src={toile1} width="150px" height="150" />
+                                        </div>
+                                        <div className='col-sm-6 text-black' style={{ height: '20vh', overflowX: "auto" }}>
+                                            Star de la décoration murale, la toile imprimée reste le support de tableau au meilleur rapport qualité prix.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='col-sm-4'>
+                                    <div className='row'>
+                                        <div className='col-sm-6'>
+                                            <img src={toile2} width="150px" height="150" />
+                                        </div>
+                                        <div className='col-sm-6 text-black' style={{ height: '20vh', }}>
+                                            Une toile plafond est de grande largeur (de 2m50 à 6m). Elle est destinée à la peinture des plafonds.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='col-sm-4'>
+                                    <div className='row'>
+                                        <div className='col-sm-6'>
+                                            <img src={toile3} width="150px" height="150" />
+                                        </div>
+                                        <div className='col-sm-6 text-black' style={{ height: '20vh', overflowX: "auto" }}>
+                                            Toile imprimée haute définition finition doré retouchée a la main + encadrement.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p className="card-text lead fs-4 text-black-50">
+                                    Voluptate fuga, quis et aliquam eum at ratione libe
+                                    Architecto aliquam ratione quibusdam consectetur voluptates ipsum corporis expedita id libero
+                                    necessitatibus reprehenderit nobis odio tenetur voluptas ullam, in temporibus facilis sed.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

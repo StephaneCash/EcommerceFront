@@ -3,8 +3,13 @@ nav{
   z-index: 100000000;
 
 }
+.textCardImageDesc{
+  background: #ededed;
+  padding: 10px;
 
-.homePricipeal{
+  /* ADD THE OVERFLOW */
+  overflow-y:visible;
+  overflow-x:hidden;
 }
 
 .grille {

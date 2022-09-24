@@ -80,7 +80,7 @@ function GestionTab() {
                                     <th>Quantité</th>
                                     <th>Image</th>
                                     <th>Description</th>
-                                    <th>Options</th>
+                                    <th style={{width:'250px'}}>Options</th>
                                 </tr>
                             </thead>
                             <tbody>
