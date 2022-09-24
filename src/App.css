@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+.navbar-nav a {
+  font-size: 18px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.data {
+  margin: 50px auto;
+  width: 50% !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login {
+  margin: 10px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login .card {
+  background-color: #fff !important;
+  box-shadow: 1px 1px 10px silver !important;
 }
 
-.App-link {
-  color: #61dafb;
+.login .card .card-header,
+.card-footer {
+  background-color: #fff !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login .card-body {
+  padding: 30px !important;
+}
+
+.login .card-header {
+  text-align: center !important;
+}
+
+.login .card-footer {
+  text-align: center !important;
+  padding: 30px !important;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: #0c50a2 !important;
+}
+
+.navbar a {
+  color: #fff !important;
+}
+
+.product a {
+  background-color: #0c50a2 !important;
+  color: #fff !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.product a:hover {
+  background-color: #fff !important;
+  color: #0c50a2 !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.dernierProduct button {
+  background-color: #0c50a2 !important;
+  color: #fff !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.dernierProduct button:hover {
+  background-color: #fff !important;
+  color: #0c50a2 !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.productOne a,
+.productOne button {
+  background-color: #0c50a2 !important;
+  color: #fff !important;
+}
+
+.productOne a:hover,
+.productOne button:hover {
+  background-color: #fff !important;
+  color: #0c50a2 !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.cart button {
+  background-color: #0c50a2 !important;
+  color: #fff !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.btnEdit{
+  background-color: #0c50a2 !important;
+  color: #fff !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.cart button:hover {
+  background-color: #fff !important;
+  color: #0c50a2 !important;
+  border: 1px solid #0c50a2 !important;
+}
+
+.imageHome{
+  border: 1px solid #0c50a2 !important;
+}
+
+.slide1Home{
+  border: 1px solid silver !important;
+}
+
+input {
+  box-shadow: none !important;
+  border: 2px solid silver !important; 
+}
+
+select, textarea {
+  box-shadow: none !important;
+  border: 2px solid silver !important; 
+}
+
+.foort{
+  background-color: #0c50a2;
+  color: #efefef;
+  padding: 10px;
 }

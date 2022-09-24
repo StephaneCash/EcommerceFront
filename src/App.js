@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './components/Home';
+import Product from './components/Product';
+import { BrowserRouter } from 'react-router-dom';
+import ProductOne from './components/ProductOne';
+import Cart from './components/Cart';
+import { PayPalScriptProvider } from "@paypal/react-paypal-js"
+import Payement from './components/Payement';
+import 'react-notifications/lib/notifications.css';
+import Login from './components/Login';
+import GestionTab from "./components/GestionTab";
+import Navbar from './components/Navbar';
+import AddProduct from "./components/AddProduct"
+import EditProduct from './components/EditProduct';
+import Category from './components/Category';
+import AddCat from './components/AddCat';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <PayPalScriptProvider options={{ "client-id": "AUGBEurHYAYgL-fNwZX8bA60QtYNAPPpoRw0KDmNFfpc6rEEsVL-ERZqkupmDF7fRonMmTYY8HWRidyp" }}>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/productOne" element={<ProductOne />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/payement" element={<Payement />} />
+          <Route path='/gerer' element={<GestionTab />} />
+          <Route path='/addProduct' element={<AddProduct />} />
+          <Route path='/editProduct' element={<EditProduct />} />
+          <Route path="/categories" element={<Category />} />
+          <Route path="/addCat" element={<AddCat />} />
+        </Routes>
+      </PayPalScriptProvider>
+    </BrowserRouter>
   );
 }
 
