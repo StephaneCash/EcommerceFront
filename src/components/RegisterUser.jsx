@@ -120,8 +120,9 @@ function RegisterUser() {
 
 
                     <Typography className='mb-2'>
-                        N'avez-vous pas un compte ? <NavLink to="/register">
-                            S'inscrire
+                        Avez-vous déjà un compte ? <br />
+                         <NavLink to="/login" style={{textAlign:"center"}}>
+                            Se connecter
                         </NavLink>
                     </Typography>
                     <br />

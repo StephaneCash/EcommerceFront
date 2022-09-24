@@ -46,8 +46,12 @@ nav{
 }
 
 .data {
-  margin: 50px auto;
-  width: 50% !important;
+  margin-top: 59px;
+  justify-content: center !important;
+  justify-items: center !important;
+  width: 100%;
+  text-align: center;
+  
 }
 
 .login {

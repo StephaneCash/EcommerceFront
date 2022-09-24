@@ -8,7 +8,16 @@ function Payement() {
     return (
         <>
             <div className='data'>
-                <ButtonCheckOut product={state} />
+                <ButtonCheckOut product={state} style={{ margin: '0px auto', width: '50%' }} />
+                <p className='text-center'>Vous pouvez acheter via MPSA par ce numéro
+                    <br />
+                    <br />
+                    <img src="./images/mpsa.jpg" height="100px" width="100px" />
+                    <br />
+                    <br />
+                    <h3>    +243 818984376</h3>
+                </p>
+
             </div>
         </>
     )
