@@ -17,6 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <PayPalScriptProvider options={{ "client-id": "AUGBEurHYAYgL-fNwZX8bA60QtYNAPPpoRw0KDmNFfpc6rEEsVL-ERZqkupmDF7fRonMmTYY8HWRidyp" }}>
+    
         <Navbar />
         <Routes>
           <Route path='/login' element={<Login />} />
