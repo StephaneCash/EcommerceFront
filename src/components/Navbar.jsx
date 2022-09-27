@@ -53,13 +53,9 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/contacts">Contact</NavLink>
                             </li>
-
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/gerer">Gestion</NavLink>
-                            </li>
                         </ul>
 
-                        {data ? <><Avatar>{data ? data.nom.substring(1, 0) : "K"}</Avatar> <i className='text-white ms-2 me-2'>Salut <u>{data.nom && data.nom}</u></i> <button className='btn btn-outline-dark ms-2' style={{ color: "#fff", border: "1px solid #fff" }} onClick={deconnexion}>Déconnexion</button></> : <NavLink to='/login' alt="Connexion" className='ms-2 btn' style={{ border: "1px solid #fff", }}>
+                        {data ? <><Avatar>{data ? data.nom.charAt(0) : "K"}</Avatar> <i className='text-white ms-2 me-2'>Salut <u>{data.nom && data.nom}</u></i> <button className='btn btn-outline-dark ms-2' style={{ color: "#fff", border: "1px solid #fff" }} onClick={deconnexion}>Déconnexion</button></> : <NavLink to='/login' alt="Connexion" className='ms-2 btn' style={{ border: "1px solid #fff", }}>
                             Connectez-vous
                         </NavLink>}
 

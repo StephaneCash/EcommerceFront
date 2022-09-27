@@ -73,9 +73,7 @@ function Product() {
             <>
                 <div className="buttons d-flex justify-content-center mb-5 pb-5 dernierProduct">
                     <button className="btn btn-outline-dark" onClick={() => setFilter(data)}>Tout</button>
-                    <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('men\'s clothing')}>Pain à la main</button>
-                    <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('women\'s clothing')}>Indien</button>
-                    <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('electronics')}>Sur thème des paysages</button>
+                    <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('men\'s clothing')}>Tableau à toile imprimée</button>
                 </div>
                 <div className='grille'>
                     {
@@ -112,7 +110,7 @@ function Product() {
 
     return (
         <>
-            <div className=" my-5 py-5">
+            <div className=" my-5 py-2">
                 <div className="row">
                     <div className="col-12 mb-5">
                         <h1 className='display-6 fw-bolder text-center'>Derniers produits de qualité</h1>

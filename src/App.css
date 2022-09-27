@@ -168,3 +168,7 @@ select, textarea {
   color: #efefef;
   padding: 10px;
 }
+
+.hero-slider-root{
+  border-top: 3px solid #0c50a2 !important;
+}

@@ -42,8 +42,10 @@ function ProductOne() {
     }
 
     useEffect(() => {
-        setProduct(state.product)
-    }, []);
+        if (state) {
+            setProduct(state.product)
+        }
+    }, [state]);
 
     const dispatch = useDispatch();
     const addProduct = (product) => {
@@ -76,23 +78,23 @@ function ProductOne() {
             <>
                 <div className='row productOne'>
                     <div className="col-md-6">
-                        <img src={state.product.image} title={state.product.title} height="400px" width="400px" />
+                        <img src={state && state.product.image} title={state && state.product.title} height="400px" width="400px" />
                     </div>
                     <div className="col-md-6">
                         <h5 className='text-uppercase text-black-50'>
-                            {state.product.categories && state.product.categories.nom}
+                            {state && state.product.categories && state.product.categories.nom}
                         </h5>
-                        <h6 className='display-6'>{state.product.title}</h6>
+                        <h6 className='display-6'>{state && state.product.title}</h6>
                         <p className='lead'>
-                            Évaluation {state.product.rating && state.product.rating} <i className="fa fa-star"></i> <i className="fa fa-star"></i><i className="fa fa-star"></i>
+                            Évaluation {state && state.product.rating && state.product.rating} <i className="fa fa-star"></i> <i className="fa fa-star"></i><i className="fa fa-star"></i>
                         </p>
                         <h6 className='display-6 fw-bold my-6'>
-                            $ {state.product.price}
+                            $ {state && state.product.price}
                         </h6>
                         <p className='lead' style={{
                             background: "#f0f0f0", border: "1px solid silver",
                             borderRadius: "7px", padding: "30px", color: "#333"
-                        }}>{state.product.description}</p>
+                        }}>{state && state.product.description}</p>
                         <button className='btn btn-outline-dark px-4 py-2'
                             onClick={() => handleCart(product)}>Ajouter au panier</button>
                         <button className='btn btn-outline-dark ms-2 px-3 py-2' onClick={handleCart1}>Allez au panier</button>

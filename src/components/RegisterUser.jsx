@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { Grid, Paper, Typography, Link, Button } from "@material-ui/core"
+import swal from 'sweetalert';
 
 
 function RegisterUser() {
@@ -53,12 +54,12 @@ function RegisterUser() {
                 if (res.data.jeton) {
                     localStorage.setItem('user', JSON.stringify(res.data));
                 }
-
+                swal({title:"Succès", icon: "success", text: "Vous avez été bien inscrit."})
                 navigate('/login');
                 setBtnState(false);
             }).catch(erreur => {
                 console.log(erreur)
-                setErr(erreur.response.data.message)
+                setErr(erreur.response.data ? erreur.response.data : "")
                 setBtnState(false);
             })
         } else {
@@ -67,7 +68,7 @@ function RegisterUser() {
         }
     };
 
-
+    console.log(err)
     return (
         <div>
             <Grid>
@@ -91,7 +92,7 @@ function RegisterUser() {
                         />
                     </div>
 
-                    <div className="form-group mt-4">
+                    <div className="form-group mt-2">
                         <label className="mt-1">Entrer une adresse email</label>
                         <input placeholder="Nom d'utilisateur ou email" required type="email"
                             className='form-control mt-1' onChange={(e) => (handleEmail, setEmail(e.target.value))}
@@ -105,7 +106,7 @@ function RegisterUser() {
                             required />
                     </div>
 
-                    {err.length > 0 ? <span className='text-danger text-center'>{err}.</span> : ""}
+                    {err.length > 0 && <span className='text-danger text-center'>{err}.</span>}
 
 
                     <Button variant="contained" onClick={connecter} className='mt-3' fullWidth style={{ backgroundColor: '#0c50a2', color: "#fff" }}>
@@ -121,7 +122,7 @@ function RegisterUser() {
 
                     <Typography className='mb-2'>
                         Avez-vous déjà un compte ? <br />
-                         <NavLink to="/login" style={{textAlign:"center"}}>
+                        <NavLink to="/login" style={{ textAlign: "center" }}>
                             Se connecter
                         </NavLink>
                     </Typography>

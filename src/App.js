@@ -9,12 +9,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import Payement from './components/Payement';
 import 'react-notifications/lib/notifications.css';
 import Login from './components/Login';
-import GestionTab from "./components/GestionTab";
 import Navbar from './components/Navbar';
-import AddProduct from "./components/AddProduct"
-import EditProduct from './components/EditProduct';
-import Category from './components/Category';
-import AddCat from './components/AddCat';
 import RegisterUser from './components/RegisterUser';
 
 
@@ -30,11 +25,6 @@ function App() {
           <Route path="/productOne" element={<ProductOne />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/payement" element={<Payement />} />
-          <Route path='/gerer' element={<GestionTab />} />
-          <Route path='/addProduct' element={<AddProduct />} />
-          <Route path='/editProduct' element={<EditProduct />} />
-          <Route path="/categories" element={<Category />} />
-          <Route path="/addCat" element={<AddCat />} />
           <Route path="/register" element={<RegisterUser />} />
         </Routes>
       </PayPalScriptProvider>
