@@ -11,6 +11,7 @@ import 'react-notifications/lib/notifications.css';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import RegisterUser from './components/RegisterUser';
+import Apropos from './components/Apropos';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/payement" element={<Payement />} />
           <Route path="/register" element={<RegisterUser />} />
+          <Route path="/about" element={<Apropos />} />
         </Routes>
       </PayPalScriptProvider>
     </BrowserRouter>
