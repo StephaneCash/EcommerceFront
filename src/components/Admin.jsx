@@ -62,6 +62,11 @@ function Admin() {
                                             <i className='fa fa-plus'></i> Ajouter un nouveau tableau
                                         </button>
                                     </NavLink>
+                                    <NavLink to="/categories" className="ms-2">
+                                        <button className='btn btn-outline-primary ms-2' style={{ backgroundColor: '#fff', color: "#333", float: "right",  }}>
+                                            Gestion catégorie
+                                        </button>
+                                    </NavLink>
                                 </div>
                             </div>
                         </div>

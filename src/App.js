@@ -15,6 +15,8 @@ import Apropos from './components/Apropos';
 import Admin from "./components/Admin";
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct"
+import Categories from './components/Categories';
+import AddCat from './components/AddCat';
 
 
 function App() {
@@ -35,6 +37,9 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/editProduct" element={<EditProduct />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/addCat" element={<AddCat />} />
+          <Route path="/editCat" element={<AddCat />} />
         </Routes>
       </PayPalScriptProvider>
     </BrowserRouter>

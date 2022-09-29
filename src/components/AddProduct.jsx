@@ -30,7 +30,7 @@ function AddProduct() {
                 { title: title, qty: qty, price: price, description: description, file: file, categoryId: categoryId }, config)
                 .then(res => {
                     swal({ title: "Succès", icon: "success", text: res.data.message });
-                    navigate('/admin');
+                    window.location.href= '/admin'
                 })
                 .catch(err => {
                     console.log(err.response);
@@ -66,10 +66,10 @@ function AddProduct() {
                         <input type="text" className="form-control" onChange={(e) => setTitle(e.target.value)} placeholder='Nom du tableau' id="title" />
                         <br />
                         <label>Prix</label>
-                        <input type="text" className="form-control" onChange={(e) => setPrice(e.target.value)} placeholder='Prix' id="price" />
+                        <input type="number" className="form-control" onChange={(e) => setPrice(e.target.value)} placeholder='Prix' id="price" />
                         <br />
                         <label>Quantité</label>
-                        <input type="text" className="form-control" onChange={(e) => setQty(e.target.value)} placeholder='Quantité' id="qty" />
+                        <input type="number" className="form-control" onChange={(e) => setQty(e.target.value)} placeholder='Quantité' id="qty" />
                         <br />
                         <Button variant="contained" className='mt-3' style={{ backgroundColor: '#0c50a2', color: "#fff" }} onClick={submitData}>
                             {btn ? 'Ajout...' : "Ajouter"}

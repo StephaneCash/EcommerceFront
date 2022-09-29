@@ -70,9 +70,9 @@ function EditProduct() {
             }
             axios.put(`http://localhost:5000/api/products/${id}`, { title, qty, price, description, file, categoryId }, config)
                 .then(resp => {
-                    navigate("/admin");
                     setClicBtn(false);
                     swal({ title: "Succès", icon: "success", text: "Tableau édité avec succès" });
+                    window.location.href = '/admin'
                 })
                 .catch(err => {
                     console.log(err.response);
@@ -94,10 +94,10 @@ function EditProduct() {
                         <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Nom du tableau' id="title" />
                         <br />
                         <label>Prix en ($)</label>
-                        <input type="text" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} placeholder='Prix' id="price" />
+                        <input type="number" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} placeholder='Prix' id="price" />
                         <br />
                         <label>Quantité</label>
-                        <input type="text" className="form-control" value={qty} onChange={(e) => setQty(e.target.value)} placeholder='Quantité' id="qty" />
+                        <input type="number" className="form-control" value={qty} onChange={(e) => setQty(e.target.value)} placeholder='Quantité' id="qty" />
                         <br />
                         <Button variant="contained" className='mt-3' style={{ backgroundColor: '#0c50a2', color: "#fff" }} onClick={submitData}>
                             {clicBtn ? "Edition..." : "Editer"}
