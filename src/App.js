@@ -12,13 +12,16 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import RegisterUser from './components/RegisterUser';
 import Apropos from './components/Apropos';
+import Admin from "./components/Admin";
+import AddProduct from "./components/AddProduct";
+import EditProduct from "./components/EditProduct"
 
 
 function App() {
   return (
     <BrowserRouter>
       <PayPalScriptProvider options={{ "client-id": "AUGBEurHYAYgL-fNwZX8bA60QtYNAPPpoRw0KDmNFfpc6rEEsVL-ERZqkupmDF7fRonMmTYY8HWRidyp" }}>
-    
+
         <Navbar />
         <Routes>
           <Route path='/login' element={<Login />} />
@@ -29,6 +32,9 @@ function App() {
           <Route path="/payement" element={<Payement />} />
           <Route path="/register" element={<RegisterUser />} />
           <Route path="/about" element={<Apropos />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/editProduct" element={<EditProduct />} />
         </Routes>
       </PayPalScriptProvider>
     </BrowserRouter>
