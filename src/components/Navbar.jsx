@@ -38,7 +38,7 @@ const Navbar = () => {
         <>
             <nav className="navbar navbar-expand-lg py-3 shadow-sm">
                 <div className="container">
-                    <NavLink className="navbar-brand" to="/">E-commerce</NavLink>
+                    <NavLink className="navbar-brand" to="/"><i className="fa fa-home"></i> Créative Déco</NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -49,6 +49,9 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/contacts">Contact</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/contacts"> <i className="fa fa-cog"></i> Admin</NavLink>
                             </li>
                         </ul>
 

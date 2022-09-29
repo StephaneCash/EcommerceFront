@@ -3,6 +3,7 @@ import Skeleton from 'react-loading-skeleton';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
+import Contact from "./Contact"
 
 
 function ProductOne() {
@@ -112,6 +113,8 @@ function ProductOne() {
                     {load ? <Loading /> : <ShowProduct />}
                 </div>
             </div>
+            <Contact />
+
         </>
     )
 }

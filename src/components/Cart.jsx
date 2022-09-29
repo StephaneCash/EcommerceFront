@@ -28,11 +28,11 @@ function Cart() {
   return (
     <>
       <div className='container py-5'>
+        <NavLink to="/"><i className="fa fa-chevron-left mb-2"></i> Retour</NavLink>
         {product.length > 0 ?
           product.map((val) => {
             return (
               <>
-                <NavLink to="/">Retour</NavLink>
                 <div className='row'>
                   <div className='card mb-2'>
                     <div className="card-body d-flex">
