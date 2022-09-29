@@ -10,7 +10,7 @@ function Contact() {
                         Recevez les dernières tendances de produits et les nouvelles de l’industrie directement dans votre boîte de réception
                     </p>
                     <p style={{ width: "50%", margin: "0px auto" }} className="d-flex">
-                        <input type="text" className='form-control' />
+                        <input type="text" className='form-control' placeholder='Entrer votre adresse email' />
                         <button className='btn btn-outline-dark ms-2'>Soumettre</button>
                     </p>
                 </div>
