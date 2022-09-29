@@ -98,7 +98,7 @@ function ProductOne() {
                         <button className='btn btn-outline-dark px-4 py-2'
                             onClick={() => handleCart(product)}>Ajouter au panier</button>
                         <button className='btn btn-outline-dark ms-2 px-3 py-2' onClick={handleCart1}>Allez au panier</button>
-                        <NavLink to="/products" className='btn btn-outline-dark ms-2 px-3 py-2'>Retour</NavLink>
+                        <NavLink to="/" className='btn btn-outline-dark ms-2 px-3 py-2'>Retour</NavLink>
                     </div>
                 </div>
             </>

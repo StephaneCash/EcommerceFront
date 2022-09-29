@@ -55,11 +55,7 @@ function Product() {
 
     const Loading = () => {
         return (
-            <>
-                <div className="col-md-3">
-                    <i className="fa fa-spinner fa-spin fa-2x"></i> En cours de chargement....
-                </div>
-            </>
+            <> <i className="fa fa-spinner fa-spin fa-2x"></i> En cours de chargement....</>
         )
     };
 
@@ -110,19 +106,15 @@ function Product() {
 
     return (
         <>
-            
-            <div className="">
+            <div className="mt-3">
                 <div className="">
-                    <div className="">
-                        <h1 className='display-6 fw-bolder text-center'>Derniers produits de qualité</h1>
-                        <hr />
-                    </div>
-                </div>
-                <div className="productContent">
-                    {loading ? <Loading /> : <ShowProducts />}
+                    <h1 className='display-6 fw-bolder text-center'>Derniers produits de qualité</h1>
+                    <hr />
                 </div>
             </div>
-        
+            <div className="productContent">
+                {loading ? <Loading /> : <ShowProducts />}
+            </div>
         </>
     )
 }

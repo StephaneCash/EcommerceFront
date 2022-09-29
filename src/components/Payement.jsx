@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtonCheckOut from './paypal/ButtonCheckOut';
 import { useLocation } from "react-router-dom";
+import Contact from './Contact';
 
 function Payement() {
     const location = useLocation();
@@ -19,6 +20,7 @@ function Payement() {
                 </p>
 
             </div>
+            <Contact />
         </>
     )
 }

@@ -9,13 +9,16 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import Payement from './components/Payement';
 import 'react-notifications/lib/notifications.css';
 import Login from './components/Login';
+import Navbar from './components/Navbar';
 import RegisterUser from './components/RegisterUser';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <PayPalScriptProvider options={{ "client-id": "AUGBEurHYAYgL-fNwZX8bA60QtYNAPPpoRw0KDmNFfpc6rEEsVL-ERZqkupmDF7fRonMmTYY8HWRidyp" }}>    
+      <PayPalScriptProvider options={{ "client-id": "AUGBEurHYAYgL-fNwZX8bA60QtYNAPPpoRw0KDmNFfpc6rEEsVL-ERZqkupmDF7fRonMmTYY8HWRidyp" }}>
+    
+        <Navbar />
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path="/" element={<Home />} />

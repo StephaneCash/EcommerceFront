@@ -2,7 +2,7 @@ import React from 'react'
 
 function Contact() {
     return (
-        <div className='conatct'>
+        <div className='conatct mt-5'>
             <div className='col-sm-8 content'>
                 <div className="text-center">
                     <i className='fa fa-bell'></i> Alerte commande

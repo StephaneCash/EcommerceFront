@@ -24,9 +24,10 @@ nav {
 
 }
 
-.productContent{
+.productContent {
   width: 100%;
-  
+  text-align: center;
+  justify-content: center;
 }
 
 .grille .card {
@@ -47,7 +48,8 @@ nav {
 }
 
 .navbar-nav a {
-  font-size: 18px;
+  font-size: 16px;
+  color: #ededed;
 }
 
 .data {
@@ -206,7 +208,11 @@ textarea {
   font-size: 14px;
 }
 
-.conatct .btn{
+.conatct .btn {
   color: #ededed;
   border: 1px solid #ededed;
+}
+
+.cardChariotVide{
+  text-align: center;
 }

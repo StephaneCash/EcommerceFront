@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { addCart, deleteCart } from "../redux/action";
+import Contact from './Contact';
 
 function Cart() {
   const [product, setProduct] = useState([]);
@@ -31,6 +32,7 @@ function Cart() {
           product.map((val) => {
             return (
               <>
+                <NavLink to="/">Retour</NavLink>
                 <div className='row'>
                   <div className='card mb-2'>
                     <div className="card-body d-flex">
@@ -58,11 +60,11 @@ function Cart() {
               </>
             )
           }) :
-          <div className='card-img-overlay d-flex flex-column text-center justify-content-center'>
+          <div className='cardChariotVide'>
             <h5>Aucun tableau n'a été ajouté au panier.</h5>
             <img src='./images/levide.jpg' height="200px" width="200px" style={{ margin: "0px auto" }} />
             <p>
-              <NavLink to="/products">Retour</NavLink>
+              <NavLink to="/">Retour</NavLink>
             </p>
           </div>
         }
@@ -72,13 +74,13 @@ function Cart() {
             {product.length > 0 && <>
               <NavLink to={{ pathname: "/payement" }} state={{ product }}>
                 <button className="btn btn-outline-dark">Procéder au payement</button> </NavLink>
-              <NavLink to="/products" className="me-2">Retour</NavLink>
             </>
 
             }
           </div>
         </div>
       </div>
+      <Contact />
     </>
   )
 }
