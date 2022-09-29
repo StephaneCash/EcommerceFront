@@ -60,7 +60,7 @@ function Product() {
     };
 
     const filterProduct = (cat) => {
-        const updatedList = data.filter((x) => x.category === cat);
+        const updatedList = data.filter((x) => x.categories && x.categories.nom === cat);
         setFilter(updatedList);
     };
 
@@ -69,7 +69,7 @@ function Product() {
             <>
                 <div className="buttons d-flex justify-content-center mb-5 pb-5 dernierProduct">
                     <button className="btn btn-outline-dark" onClick={() => setFilter(data)}>Tout</button>
-                    <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('men\'s clothing')}>Tableau à toile imprimée</button>
+                    <button className="btn btn-outline-dark ms-2" onClick={() => filterProduct('Tableau toile imprimée')}>Tableau à toile imprimée</button>
                 </div>
                 <div className='grille'>
                     {

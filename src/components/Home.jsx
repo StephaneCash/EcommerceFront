@@ -4,16 +4,10 @@ import HeroSlider, { Slide } from 'hero-slider';
 import Contact from './Contact';
 
 function Home() {
-    const bg1 = "./images/bg.jpg";
-    const bg2 = "./images/bg2.jpeg";
-    const bg3 = "./images/home.jpeg";
+
     const t1 = "./images/t1.jpg";
     const t2 = "./images/t2.jpg";
     const t3 = "./images/e.jpeg";
-
-    const toile1 = "./images/toile1.jpg";
-    const toile2 = "./images/toile2.jpg";
-    const toile3 = "./images/toile3.jpg";
 
     return (
         <>
@@ -66,11 +60,9 @@ function Home() {
                             </div>
                         </div>
                     </div>
-
                     <Product />
                 </div>
             </div>
-
             <Contact />
         </>
     )

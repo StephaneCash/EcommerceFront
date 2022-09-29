@@ -6,10 +6,10 @@ function Apropos() {
         <>
             <div className="container py-5">
                 <div className="row py-4">
-                    <h4>A propos de Créatuve Déco</h4>
                     <div className='col-sm-12'>
                         <div className="row">
                             <div className="col-sm-6">
+                                <h4>A propos de Créatuve Déco</h4>
                                 <p>
                                     Lancé en 2022, creativedeco.com est la principale plateforme de commerce de gros
                                     mondial. Nous servons des millions d'acheteurs et de fournisseurs dans le monde entier.
@@ -24,7 +24,7 @@ function Apropos() {
                                 </p>
 
                             </div>
-                            <div className="col-sm-6">
+                            <div className="col-sm-6 apropos">
                                 <img src="./images/com.jpg" width="400px" />
                             </div>
                         </div>

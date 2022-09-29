@@ -24,6 +24,35 @@ nav {
 
 }
 
+.grilleCat {
+  height: auto;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, 100px);
+  justify-content: center;
+  padding-left: auto;
+}
+
+.grilleCat .card{ 
+  width: 100px;
+  text-align: center;
+  height: 120px;
+  border: 0px solid silver;
+  transition: transform 0.4s;
+  margin-left: -17px !important
+}
+
+.grilleCat .card img {
+  height: 80px;
+  width: 80px;
+  justify-content: center;
+}
+
+.grilleCat .card:hover {
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
 .productContent {
   width: 100%;
   text-align: center;
@@ -213,6 +242,9 @@ textarea {
   border: 1px solid #ededed;
 }
 
-.cardChariotVide{
+.cardChariotVide {
   text-align: center;
+}
+
+.apropos {
 }
