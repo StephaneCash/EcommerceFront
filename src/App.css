@@ -1,27 +1,32 @@
-nav{
+nav {
   width: 100% !important;
   z-index: 100000000;
 
 }
-.textCardImageDesc{
+
+.textCardImageDesc {
   background: #ededed;
   padding: 10px;
 
   /* ADD THE OVERFLOW */
-  overflow-y:visible;
-  overflow-x:hidden;
+  overflow-y: visible;
+  overflow-x: hidden;
 }
 
 .grille {
-  max-width: 1400px;
-  width: 90%;
   height: auto;
-  margin: 0px auto;
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(auto-fill, 200px);
   justify-content: center;
-  grid-gap: 30px;
-  grid-column: 1119px;
+  margin: 0px auto;
+  grid-gap: 20px;
+
+}
+
+.productContent{
+  width: 100%;
+  
 }
 
 .grille .card {
@@ -30,12 +35,12 @@ nav{
   transition: transform 0.4s;
 }
 
-.grille .card img{
+.grille .card img {
   height: 100px;
   width: 150px;
 }
 
-.grille .card:hover{
+.grille .card:hover {
   transform: translateY(-10px);
   border: 1px solid #0c50a2;
   cursor: pointer;
@@ -51,7 +56,7 @@ nav{
   justify-items: center !important;
   width: 100%;
   text-align: center;
-  
+
 }
 
 .login {
@@ -136,7 +141,7 @@ nav{
   border: 1px solid #0c50a2 !important;
 }
 
-.btnEdit{
+.btnEdit {
   background-color: #0c50a2 !important;
   color: #fff !important;
   border: 1px solid #0c50a2 !important;
@@ -149,26 +154,59 @@ nav{
 }
 
 
-.slide1Home{
+.slide1Home {
   border: 0px solid silver !important;
 }
 
 input {
   box-shadow: none !important;
-  border: 2px solid silver !important; 
+  border: 2px solid silver !important;
 }
 
-select, textarea {
+select,
+textarea {
   box-shadow: none !important;
-  border: 2px solid silver !important; 
+  border: 2px solid silver !important;
 }
 
-.foort{
+.foort {
   background-color: #0c50a2;
   color: #efefef;
   padding: 10px;
 }
 
-.hero-slider-root{
+.hero-slider-root {
   border-top: 3px solid #0c50a2 !important;
+}
+
+.conatct {
+  background-color: #365677;
+  height: auto;
+  width: 100%;
+  padding: 25px;
+  color: #efefef;
+}
+
+.conatct .content {
+  width: 90%;
+  padding: 10px;
+  margin: 0px auto;
+}
+
+.conatct h6 {
+  font-size: large;
+}
+
+.conatct ul {}
+
+.conatct ul li {
+  list-style-type: none;
+  margin: 5px;
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.conatct .btn{
+  color: #ededed;
+  border: 1px solid #ededed;
 }

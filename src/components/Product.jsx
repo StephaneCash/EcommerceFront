@@ -81,8 +81,8 @@ function Product() {
                             return (
                                 <>
 
-                                    <div className=" text-center p-4" key={product.id}>
-                                        <div className=" mb-4 product" style={{ display: "grid" }}>
+                                    <div className=" text-center" key={product.id}>
+                                        <div className="product" style={{ display: "grid" }}>
                                             <div className="card">
                                                 <div className="card-body">
                                                     <div className='text'>{product.title.substring(0, 15)}...</div>
@@ -110,17 +110,19 @@ function Product() {
 
     return (
         <>
-            <div className=" my-5 py-2">
-                <div className="row">
-                    <div className="col-12 mb-5">
+            
+            <div className="">
+                <div className="">
+                    <div className="">
                         <h1 className='display-6 fw-bolder text-center'>Derniers produits de qualité</h1>
                         <hr />
                     </div>
                 </div>
-                <div className="row justify-content-center">
+                <div className="productContent">
                     {loading ? <Loading /> : <ShowProducts />}
                 </div>
             </div>
+        
         </>
     )
 }
