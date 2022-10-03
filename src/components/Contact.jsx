@@ -1,6 +1,22 @@
 import React from 'react'
+import { useState } from 'react'
 
 function Contact() {
+
+    const [email, setEmail] = useState('');
+
+    const submitData = () => {
+        if (!email) {
+            alert('Veuillez entrer votre adresse email svp !')
+        } else {
+            if (!email.includes("@")) {
+                alert('Votre adresse email doit avoir @ quelque part')
+            } else {
+                alert("Vous êtes désoemais dans nos listes alertes " + email + " merci de votre confiance")
+            }
+        }
+    }
+
     return (
         <div className='conatct mt-5'>
             <div className='col-sm-8 content'>
@@ -10,8 +26,9 @@ function Contact() {
                         Recevez les dernières tendances de produits et les nouvelles de l’industrie directement dans votre boîte de réception
                     </p>
                     <p style={{ width: "50%", margin: "0px auto" }} className="d-flex">
-                        <input type="text" className='form-control' placeholder='Entrer votre adresse email' />
-                        <button className='btn btn-outline-dark ms-2'>Soumettre</button>
+                        <input type="text" className='form-control' onChange={(e) => setEmail(e.target.value)}
+                            placeholder='Entrer votre adresse email' />
+                        <button className='btn btn-outline-dark ms-2' onClick={submitData}>Soumettre</button>
                     </p>
                 </div>
                 <div className='d-flex mt-5'>
