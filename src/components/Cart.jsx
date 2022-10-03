@@ -3,13 +3,32 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { addCart, deleteCart } from "../redux/action";
 import Contact from './Contact';
+import axios from 'axios';
+
 
 function Cart() {
   const [product, setProduct] = useState([]);
   const state = useSelector((state) => state.handleCart);
   const [qty, setQty] = useState(0);
+  const [stockValid, setStockValid] = useState(false);
+  const [data, setData] = useState([]);
+  const [ids, setIds] = useState(0);
 
   const dispatch = useDispatch();
+
+  const getAllProducts = () => {
+    axios.get("http://localhost:5000/api/products")
+      .then(res => {
+        setData(res.data.data);
+      })
+      .catch(err => {
+        console.log(err.response)
+      })
+  };
+
+  useEffect(() => {
+    getAllProducts()
+  }, []);
 
   useEffect(() => {
     setProduct(state);
@@ -21,9 +40,37 @@ function Cart() {
     }
   }, [state]);
 
+  //console.log(data)
+
+  useEffect(() => {
+    data.forEach(value => {
+      product.map((val, i) => {
+        if (value.id === val.id) {
+          setIds(value);
+        }
+      })
+    });
+
+  }, [data, product])
+
+  useEffect(() => {
+    if (ids.qty < qty) {
+      alert('Le stock ne contient plus cette quantité, nous diponsons de ' + ids.qty + " " + ids.title)
+    } else {
+      setStockValid(true);
+    }
+  }, [ids, qty])
+
   const delteHandleBtn = (val) => {
     dispatch(deleteCart(val));
+  };
+const [d, setD] = useState({})
+  const changeQty = (val, e) => {
+    setQty(e.target.value)
+    setD(val)
   }
+  console.log(d, )
+
 
   return (
     <>
@@ -42,12 +89,19 @@ function Cart() {
                       <div className='col-md-4'>
                         <h3>{val.title}</h3>
                         <p className='lead fw-bold' id="p">
-                          {qty > 0 ? `${qty} x ${val.price}` : val.qty + " x " + "$" + val.price} = $
-                          {qty > 0 ? qty * val.price : val.qty * val.price}
+                          {
+                            d && d.id === val.id &&
+                            <>
+                              {qty > 0 ? `${qty} x ${val.price}` : val.qty + " x " + "$" + val.price} = $
+                              {qty > 0 ? qty * val.price : val.qty * val.price}
+                            </>
+                          }
+
                         </p>
                         <div className='d-flex'>
                           <label>Entrer un nombre</label>
-                          <input type="number" className='btn btn-outline-dark' onChange={(e) => setQty(e.target.value)} />
+
+                          <input type="number" className='btn btn-outline-dark' onChange={(e) => changeQty(val, e)} />
 
                           <button className='btn btn-outline-dark ms-4' onClick={() => delteHandleBtn(val)}>
                             <i className='fa fa-trash'></i>
@@ -72,8 +126,10 @@ function Cart() {
         <div className='row cart'>
           <div className='card mb-2 p-4'>
             {product.length > 0 && <>
-              <NavLink to={{ pathname: "/payement" }} state={{ product }}>
-                <button className="btn btn-outline-dark">Procéder au payement</button> </NavLink>
+              {! ids.qty > qty ?
+                <NavLink to={{ pathname: "/payement" }} state={{ product }}>
+                  <button className="btn btn-outline-dark">Procéder au payement</button> </NavLink>
+                : ""}
             </>
 
             }
