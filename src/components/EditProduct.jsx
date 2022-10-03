@@ -16,7 +16,7 @@ function EditProduct() {
     const [price, setPrice] = useState("");
     const [categoryId, setCategoryId] = useState(null);
     const [cat, setCat] = useState([]);
-    const [categorie, setCategorie] = useState("");
+    const [categorie, setCategorie] = useState(null);
     const [id, setId] = useState(null);
 
     const [clicBtn, setClicBtn] = useState(false);
@@ -29,8 +29,12 @@ function EditProduct() {
             setDescription(state.state.description);
             setPrice(state.state.price);
             setId(state.state.id)
+            setCategorie(state.state.categoryId);
+            setCategoryId(state.state.categoryId)
         }
     }, [state]);
+
+    console.log(categorie, state)
 
 
     const getAllCategories = () => {
@@ -73,6 +77,7 @@ function EditProduct() {
                     setClicBtn(false);
                     swal({ title: "Succès", icon: "success", text: "Tableau édité avec succès" });
                     window.location.href = '/admin'
+                    navigate("/admin")
                 })
                 .catch(err => {
                     console.log(err.response);
@@ -113,17 +118,21 @@ function EditProduct() {
                         <select className='form-control' onChange={(e) => setCategoryId(e.target.value)}>
                             <option>--Sélionnez une catégorie--</option>
                             {cat.data && cat.data.map((value, index) => {
-                                return <option key={index} value={value.id}>{value.nom}</option>
+                                if (categorie !== null && categorie === value.id) {
+                                    return <option key={index} value={value.id !== categorie ? value.id : categorie}>{value.nom}</option>
+                                } else {
+                                    return <option key={index} value={value.id}>{value.nom}</option>
+                                }
                             })}
                         </select>
                         <br />
                         <label>Description</label>
                         <textarea className='form-control' value={description} id="description" onChange={(e) => setDescription(e.target.value)} placeholder='Description...'></textarea>
                     </div>
-                    <div className="col-sm-4">
-                        <span className='text-center'>Image du tableau</span>
+                    <div className="col-sm-4 editproduct-container-img">
+                        <h6 className='text-center'>Image du tableau</h6>
                         <br />
-                        <img src={file ? file : state && state.state.image} alt={title} style={{ borderRadius: "50%" }} width="200px" height="200px" />
+                        <img src={state && state.state.image} alt={title} style={{ borderRadius: "50%", }} width="200px" height="200px" />
                     </div>
                 </div> <br />
             </div>

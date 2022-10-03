@@ -33,7 +33,7 @@ nav {
   padding-left: auto;
 }
 
-.grilleCat .card{ 
+.grilleCat .card {
   width: 100px;
   text-align: center;
   height: 120px;
@@ -242,5 +242,9 @@ textarea {
   text-align: center;
 }
 
-.apropos {
+.apropos {}
+
+.editproduct-container-img {
+  border: 1px solid silver !important;
+  text-align: center !important;
 }
