@@ -40,36 +40,35 @@ function Cart() {
     }
   }, [state]);
 
-  //console.log(data)
+  const [d, setD] = useState({})
 
   useEffect(() => {
     data.forEach(value => {
-      product.map((val, i) => {
-        if (value.id === val.id) {
-          setIds(value);
-        }
-      })
+      if (value.id === d.id) {
+        setIds(value);
+      }
     });
 
-  }, [data, product])
+  }, [data, d])
 
   useEffect(() => {
     if (ids.qty < qty) {
-      alert('Le stock ne contient plus cette quantité, nous diponsons de ' + ids.qty + " " + ids.title)
+      setStockValid(false);
+      alert('Le stock ne contient plus cette quantité, nous diponsons de ' + ids.qty + " " + d.title);
     } else {
       setStockValid(true);
     }
   }, [ids, qty])
 
+  console.log(stockValid)
+
   const delteHandleBtn = (val) => {
     dispatch(deleteCart(val));
   };
-const [d, setD] = useState({})
   const changeQty = (val, e) => {
     setQty(e.target.value)
     setD(val)
   }
-  console.log(d, )
 
 
   return (
@@ -90,11 +89,11 @@ const [d, setD] = useState({})
                         <h3>{val.title}</h3>
                         <p className='lead fw-bold' id="p">
                           {
-                            d && d.id === val.id &&
-                            <>
-                              {qty > 0 ? `${qty} x ${val.price}` : val.qty + " x " + "$" + val.price} = $
-                              {qty > 0 ? qty * val.price : val.qty * val.price}
-                            </>
+                            d && d.id === val.id ?
+                              <>
+                                {qty > 0 ? `${qty} x ${val.price}` : val.qty + " x " + "$" + val.price} = $
+                                {qty > 0 ? qty * val.price : val.qty * val.price}
+                              </> : "USD"
                           }
 
                         </p>
@@ -126,7 +125,7 @@ const [d, setD] = useState({})
         <div className='row cart'>
           <div className='card mb-2 p-4'>
             {product.length > 0 && <>
-              {! ids.qty > qty ?
+              {stockValid ?
                 <NavLink to={{ pathname: "/payement" }} state={{ product }}>
                   <button className="btn btn-outline-dark">Procéder au payement</button> </NavLink>
                 : ""}

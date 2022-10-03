@@ -24,6 +24,12 @@ function ProductOne() {
     const [donnees, setDonnes] = useState([]);
 
     useEffect(() => {
+        if (window.scrollY) {
+            window.scroll(0, 0)
+        }
+    }, [])
+
+    useEffect(() => {
         if (local) {
             setData(local);
         }
