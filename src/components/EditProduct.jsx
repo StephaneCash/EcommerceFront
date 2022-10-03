@@ -68,7 +68,7 @@ function EditProduct() {
         e.preventDefault();
         setClicBtn(true);
         console.log(typeof (file))
-        if (title !== "" && qty !== '' && price !== "" && description !== "" && file !== "" && categoryId !== "") {
+        if (title !== "" && qty !== '' && price !== "" && description !== "" && file !== "") {
             const config = {
                 headers: { 'content-type': 'multipart/form-data' }
             }
